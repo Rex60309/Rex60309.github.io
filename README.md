@@ -1,3 +1,3 @@
-https://rex60309.github.io/website/index.html
+https://rex60309.github.io/diary.html
 
 #write my own diary
