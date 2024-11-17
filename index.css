@@ -6,44 +6,52 @@ body {
 }
 
 header {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #00b4ff, #7f15ff);
   color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  padding: 20px 30px; /* 調整這裡的 padding 來放大區域 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between; /* 兩邊向中間靠攏 */
+  align-items: center;
 }
 
 header h1 {
-  font-size: 3.5rem;
+  font-size: 3.5rem; /* 調整字體大小 */
   margin: 0;
-  color: #ffdead;
+  padding-left: 280px;
+  color: #5195e1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  padding-bottom: 20px;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
+  padding-right: 50px;
   margin: 0;
+  display: flex;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 15px;
+  margin: 0 65px; /* 調整這裡的水平間距 */
 }
 
 nav ul li a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  font-size: 1.3rem;
   transition: color 0.3s, background-color 0.3s;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
 }
 
 nav ul li a:hover {
-  color: #ffde00;
-  background-color: #09b74c; /* 顏色變化範圍更小 */
+  color: #010de8;
+  background-color: #000f9497;
 }
 
 main {
@@ -88,24 +96,24 @@ audio {
 
 .side-nav {
   position: fixed;
-  left: -25px; /* 露出一半的圖片 */
+  left: -25px;
   top: 50%;
   transform: translateY(-50%);
   transition: left 0.3s;
   z-index: 1000;
   display: flex;
   align-items: center;
-  background-color: transparent; /* 背景設為透明 */
+  background-color: transparent;
 }
 
 .menu-icon {
   cursor: pointer;
-  width: 50px; /* 調整圖像大小以適合側邊欄 */
+  width: 50px;
   height: auto;
 }
 
 .side-nav:hover {
-  left: 0; /* 滑鼠移到圖片上時顯示整個圖片 */
+  left: 0;
 }
 
 .side-nav:hover .nav-links {
@@ -116,14 +124,14 @@ audio {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: none; /* 預設隱藏連結 */
+  display: none;
   position: absolute;
-  left: 60px; /* 對話框顯示在圖片右側 */
+  left: 60px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #007bff;
-  border-radius: 10px; /* 調整圓角 */
-  padding: 10px;
+  background: linear-gradient(135deg, #7f15ff, #00b4ff);
+  border-radius: 10px;
+  padding: 20px;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -131,16 +139,16 @@ audio {
 .side-nav .nav-links::before {
   content: "";
   position: absolute;
-  left: -10px; /* 調整對話框的箭頭位置 */
+  left: -10px;
   top: 50%;
   transform: translateY(-50%);
   border-width: 10px;
   border-style: solid;
-  border-color: transparent #007bff transparent transparent; /* 對話框箭頭顏色 */
+  border-color: transparent transparent transparent #007bff;
 }
 
 .side-nav .nav-links li {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .side-nav .nav-links li a {
@@ -148,10 +156,16 @@ audio {
   text-decoration: none;
   font-weight: bold;
   display: block;
-  padding: 5px;
+  padding: 10px;
+  background-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.1s;
+  border-radius: 10px;
 }
 
 .side-nav .nav-links li a:hover {
-  background-color: #ffde00;
-  color: #007bff;
+  background-color: transparent;
+  color: #5195e1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
