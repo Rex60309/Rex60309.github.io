@@ -1,40 +1,226 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #7f15ff, #00b4ff);
+}
+
+header {
+  background: linear-gradient(135deg, #00b4ff, #7f15ff);
+  color: #fff;
+  padding: 0px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 img {
+  margin: 0;
+  height: 100px;
+  width: auto;
+  padding-left: 25px;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 40px;
+  padding-right: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #4700ab;
+  color: #a1dff2e2;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.index {
+  background-color: #96dffc;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+section p {
+  line-height: 1.6;
+  color: #181818;
+}
+
+pre {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap; /* 折行 */
+  word-wrap: break-word; /* 避免長單詞溢出 */
+  font-family: "Courier New", Courier, monospace;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+
+img,
+video,
+audio {
+  max-width: 100%;
+  display: block;
+  margin: 10px 0;
+}
+
+.side-nav {
+  position: fixed;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.menu-icon {
+  cursor: pointer;
+  width: 50px;
+  height: auto;
+}
+
+.side-nav:hover {
+  left: 0;
+}
+
+.side-nav:hover .nav-links {
+  display: block;
+}
+
+.side-nav .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #7f15ff, #00b4ff);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-nav .nav-links::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #007bff;
+}
+
+.side-nav .nav-links li {
+  margin: 10px 0;
+}
+
+.side-nav .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  background-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.1s;
+  border-radius: 10px;
+}
+
+.side-nav .nav-links li a:hover {
+  background-color: transparent;
+  color: #ba6eec;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin: 10px 0;
   }
 
   header {
-    background-color: #452828;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  header h1 img {
+    padding-left: 100px;
   }
 
-  h2 {
-    color: #333;
+  .side-nav {
+    left: 0;
   }
 
-  p {
-    line-height: 1.6;
-    color: #666;
-  }
-
-  footer {
-    text-align: center;
+  .side-nav .nav-links {
+    position: static;
     padding: 10px;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    box-shadow: none;
   }
+
+  .side-nav .nav-links::before {
+    display: none;
+  }
+
+  .index {
+    width: flex-start;
+    margin: 10px;
+  }
+}
