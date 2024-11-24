@@ -1,57 +1,154 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="icon" href="picture/icon.png" type="image/png">
-  <title>Hー About</title>
-</head>
-<body>
-  <header>
-    <h1><a href="index.html"><img src="picture/icon.png" alt="icon"></a></h1>
-    <nav>
-      <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="picture/icon.png" type="image/png" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hー About</title>
+  </head>
+  <body>
+    <!-- top menu -->
+    <header>
+      <h1>
+        <a href="index.html"><img src="picture/icon.png" alt="icon" /></a>
+      </h1>
+      <nav class="font_MuseoModerno">
+        <ul>
+          <li><a href="resume.html">About</a></li>
+          <li><a href="timetable.html">Timetable</a></li>
+          <li><a href="game.html">game</a></li>
+          <li><a href="graphics.html">graphics</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="resume comic-neue-bold">
+      <section>
+        <h1>About me</h1>
+        <p class="aboutMe">
+          Hi, I'm Rex Huang. I'm currently study in National Taiwan Normal
+          University and major in Department of Computer Science Information
+          Engineering.<br />
+          I'm passionate about learning new technologies. My dream is to become
+          a software engineer and work in a prominent company such as Google.<br />
+          My hobbies include playing games, listening to music, and watching TV
+          series. I'm also enjoying on Coding, and I code what I want.<br />
+          I'm learning how to build an app right now.<br />
+          I'm trying to learn different programming languages for different
+          programming domains.<br />
+        </p>
+      </section>
+      <section>
+        <h1>NameCard.xml</h1>
+        <pre>
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;NameCard&gt;
+            &lt;name&gt;HUANG YI-HSUAN&lt;/name&gt;
+            &lt;job&gt;Student&lt;/job&gt;
+            &lt;school&gt;National Taiwan Normal University&lt;/school&gt;
+            &lt;id&gt;41147051S&lt;/id&gt;
+            &lt;department&gt;Computer Science Information Engineering&lt;/department&gt;
+            &lt;address&gt;
+                &lt;country&gt;Taiwan&lt;/country&gt;
+                &lt;city&gt;New Taipei City&lt;/city&gt;
+                &lt;district&gt;Xindian District&lt;/district&gt;
+                &lt;postalCode&gt;231&lt;/postalCode&gt;
+            &lt;/address&gt;
+            &lt;email&gt;rex50309@gmail.com&lt;/email&gt;
+            &lt;website&gt;https://rex60309.github.io/index.html&lt;/website&gt;
+        &lt;/NameCard&gt;
+      </pre
+        >
+      </section>
+    </main>
+    <main class="xml comic-neue-bold">
+      <section>
+        <h1>關於我</h1>
+        <p class="aboutMe">
+          大家好，我是黃繹軒。 目前正就讀於國立臺灣師範大學資訊工程學系。<br />
+          我喜歡學習新的科技技術。
+          我的夢想是成為軟體工程師並在Google這樣的知名公司工作。<br />
+          我平常喜歡玩遊戲、聽音樂和看劇。<br />
+          我也喜歡實作一些小程式，目前正在學習做app。<br />
+          我想學習更多不同領域的程式語言。<br />
+        </p>
+        <h1>名片.xml</h1>
+        <pre>
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;名片&gt;
+            &lt;姓名&gt;黃繹軒&lt;/姓名&gt;
+            &lt;職業&gt;學生&lt;/職業&gt;
+            &lt;學校&gt;國立臺灣師範大學&lt;/學校&gt;
+            &lt;學號&gt;41147051S&lt;/學號&gt;
+            &lt;系所&gt;資工系&lt;/系所&gt;
+            &lt;地址&gt;
+                &lt;國家&gt;臺灣&lt;/國家&gt;
+                &lt;市&gt;新北市&lt;/市&gt;
+                &lt;區&gt;新店區&lt;/區&gt;
+                &lt;郵遞區號&gt;231&lt;/郵遞區號&gt;
+            &lt;/地址&gt;
+            &lt;電子信箱&gt;rex50309@gmail.com&lt;/電子信箱&gt;
+            &lt;網站&gt;https://rex60309.github.io/index.html&lt;/網站&gt;
+        &lt;/名片&gt;
+      </pre
+        >
+      </section>
+    </main>
+    <main>
+      <!-- Calendar -->
+      <section class="calendar">
+        <h2>Calendar</h2>
+        <div>
+          <!-- Embed Google Calendar -->
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Asia%2FTaipei"
+            style="border: 0"
+            width="300"
+            height="250"
+            frameborder="0"
+            scrolling="no"
+            title="Google Calendar"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+    <!-- side menu -->
+    <aside class="side-nav">
+      <a href="index.html">
+        <img src="picture/icon.png" alt="menu-icon" class="menu-icon" />
+      </a>
+      <ul class="nav-links font_MuseoModerno">
         <li><a href="resume.html">About</a></li>
-        <li><a href="image.html">Image</a></li>
-        <li><a href="video.html">Video</a></li>
-        <li><a href="voice.html">Voice</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="game.html">game</a></li>
+        <li><a href="graphics.html">graphics</a></li>
       </ul>
-    </nav>
-  </header>
-  <main class = "resume">
-    <h1>NameCard--xml.ver</h1>
-      <pre>
-          &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-          &lt;businessCard&gt;
-              &lt;name&gt;張三&lt;/name&gt;
-              &lt;title&gt;工程師&lt;/title&gt;
-              &lt;company&gt;台灣科技公司&lt;/company&gt;
-              &lt;address&gt;
-                  &lt;street&gt;台北市信義路五段7號&lt;/street&gt;
-                  &lt;city&gt;台北市&lt;/city&gt;
-                  &lt;postalCode&gt;110&lt;/postalCode&gt;
-                  &lt;country&gt;台灣&lt;/country&gt;
-              &lt;/address&gt;
-              &lt;phone&gt;+886-2-1234-5678&lt;/phone&gt;
-              &lt;email&gt;zhangsan@example.com&lt;/email&gt;
-              &lt;website&gt;http://www.example.com&lt;/website&gt;
-          &lt;/businessCard&gt;
-      </pre>
-  </main>
-  <div class="side-nav">
-    <a href="index.html">
-      <img src="picture/ema.png" alt="menu-icon" class="menu-icon"></img>
-    </a>
-    <ul class="nav-links">
-      <li><a href="resume.html">About</a></li>
-      <li><a href="image.html">Image</a></li>
-      <li><a href="video.html">Video</a></li>
-      <li><a href="voice.html">Voice</a></li>
-    </ul>
-  </div>
-  <footer>
-    &copy; Hyh_0328
-  </footer>
-</body>
+    </aside>
+    <footer class="font_MuseoModerno">
+      <div class="footer-icons">
+        <a href="https://github.com/Rex60309">
+          <img
+            src="picture/github_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+        <a href="mailto:rex50309@gmail.com">
+          <img
+            src="picture/gmail_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+      </div>
+      <div class="footer-copy">&copy; Hyh_0328</div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="picture/icon.png" type="image/png" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hー Game</title>
+  </head>
+  <body>
+    <!-- top menu -->
+    <header>
+      <h1>
+        <a href="index.html"><img src="picture/icon.png" alt="icon" /></a>
+      </h1>
+      <nav class="font_MuseoModerno">
+        <ul>
+          <li><a href="resume.html">About</a></li>
+          <li><a href="timetable.html">Timetable</a></li>
+          <li><a href="game.html">game</a></li>
+          <li><a href="graphics.html">graphics</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="Tic-Tac-Toe-game comic-neue-bold">
+      <h1>Tic-Tac-Toe game</h1>
+      <div class="container">
+        <div class="game-info"><button id="reset">Reset</button></div>
+        <div class="game-board">
+          <div class="cell" id="cell-0"></div>
+          <div class="cell" id="cell-1"></div>
+          <div class="cell" id="cell-2"></div>
+          <div class="cell" id="cell-3"></div>
+          <div class="cell" id="cell-4"></div>
+          <div class="cell" id="cell-5"></div>
+          <div class="cell" id="cell-6"></div>
+          <div class="cell" id="cell-7"></div>
+          <div class="cell" id="cell-8"></div>
+        </div>
+        <div class="game-info"><p id="winner"></p></div>
+      </div>
+      <script>
+        const cells = document.querySelectorAll(".cell");
+        const resetButton = document.getElementById("reset");
+        const winnerDisplay = document.getElementById("winner");
+        let currentPlayer = "X";
+        let gameActive = true;
+        const winningConditions = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+        function checkWinner() {
+          for (let condition of winningConditions) {
+            const [a, b, c] = condition;
+            if (
+              cells[a].textContent &&
+              cells[a].textContent === cells[b].textContent &&
+              cells[a].textContent === cells[c].textContent
+            ) {
+              winnerDisplay.textContent = `${cells[a].textContent} wins!`;
+              winnerDisplay.classList.add("winner");
+              gameActive = false;
+              return true;
+            }
+          }
+          if ([...cells].every((cell) => cell.textContent !== "")) {
+            winnerDisplay.textContent = "Draw!";
+            winnerDisplay.classList.add("winner");
+            gameActive = false;
+            return true;
+          }
+          return false;
+        }
+        cells.forEach((cell) => {
+          cell.addEventListener("click", () => {
+            if (cell.textContent === "" && gameActive) {
+              cell.textContent = currentPlayer;
+              cell.classList.add(currentPlayer === "X" ? "x" : "o");
+              if (checkWinner()) {
+                return;
+              }
+              currentPlayer = currentPlayer === "X" ? "O" : "X";
+            }
+          });
+        });
+        resetButton.addEventListener("click", () => {
+          cells.forEach((cell) => {
+            cell.textContent = "";
+            cell.classList.remove("x", "o");
+          });
+          currentPlayer = "X";
+          gameActive = true;
+          winnerDisplay.textContent = "";
+          winnerDisplay.classList.remove("winner");
+        });
+      </script>
+    </main>
+    <main>
+      <!-- Calendar -->
+      <section class="calendar">
+        <h2>Calendar</h2>
+        <div>
+          <!-- Embed Google Calendar -->
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Asia%2FTaipei"
+            style="border: 0"
+            width="300"
+            height="250"
+            frameborder="0"
+            scrolling="no"
+            title="Google Calendar"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+    <!-- side menu -->
+    <aside class="side-nav">
+      <a href="index.html">
+        <img src="picture/icon.png" alt="menu-icon" class="menu-icon" />
+      </a>
+      <ul class="nav-links font_MuseoModerno">
+        <li><a href="resume.html">About</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="game.html">game</a></li>
+        <li><a href="graphics.html">graphics</a></li>
+      </ul>
+    </aside>
+    <footer class="font_MuseoModerno">
+      <div class="footer-icons">
+        <a href="https://github.com/Rex60309">
+          <img
+            src="picture/github_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+        <a href="mailto:rex50309@gmail.com">
+          <img
+            src="picture/gmail_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+      </div>
+      <div class="footer-copy">&copy; Hyh_0328</div>
+    </footer>
+  </body>
+</html>

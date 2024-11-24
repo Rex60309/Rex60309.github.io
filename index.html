@@ -1,73 +1,180 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="icon" href="picture/icon.png" type="image/png">
-  <title>Hー Home Page</title>
-</head>
-<body>
-  <header>
-    <h1><a href="index.html"><img src="picture/icon.png" alt="icon"></a></h1>
-    <nav>
-      <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="picture/icon.png" type="image/png" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font use-->
+    <!--
+    MuseoModerno: CSS class for a variable style
+    // <uniquifier>: Use a unique and descriptive class name
+    // <weight>: Use a value from 100 to 900
+    .museomoderno-<uniquifier> {
+      font-family: "MuseoModerno", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+    }
+    Audiowide: CSS class
+
+    .audiowide-regular {
+      font-family: "Audiowide", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    } Comic Neue: CSS classes
+
+    .comic-neue-light {
+      font-family: "Comic Neue", cursive;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .comic-neue-regular {
+      font-family: "Comic Neue", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .comic-neue-bold {
+      font-family: "Comic Neue", cursive;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .comic-neue-light-italic {
+      font-family: "Comic Neue", cursive;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .comic-neue-regular-italic {
+      font-family: "Comic Neue", cursive;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .comic-neue-bold-italic {
+      font-family: "Comic Neue", cursive;
+      font-weight: 700;
+      font-style: italic;
+    }
+    -->
+    <title>Hー Home Page</title>
+  </head>
+  <body>
+    <!-- top menu -->
+    <header>
+      <h1>
+        <a href="index.html"><img src="picture/icon.png" alt="icon" /></a>
+      </h1>
+      <nav class="font_MuseoModerno">
+        <ul>
+          <li><a href="resume.html">About</a></li>
+          <li><a href="timetable.html">Timetable</a></li>
+          <li><a href="game.html">game</a></li>
+          <li><a href="graphics.html">graphics</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="index comic-neue-bold">
+      <section>
+        <h1>Welcome to my Home Page!</h1>
+        <p class="homePage">
+          This is a simple website that showcases my subtle skills in HTML5,
+          CSS.<br />
+          I've been learning HTML5 and CSS for only few weeks. Therefore, I'm
+          not that good at it. However, I'm trying to do it well.<br />
+          This website includes my personal information, timetable, mini game
+          and a few graphics.<br />
+        </p>
+      </section>
+      <section>
+        <h1>html&css learning sources</h1>
+        <p class="homePage">
+          <a href="https://www.youtube.com/watch?v=N1f6_OhiSFI&list=WL&index=3"
+            >【HTML CSS】網頁開發 1小時初學者教學</a
+          ><br />
+          <a href="https://www.youtube.com/watch?v=6HHN0G2cwBM"
+            >成為網頁設計師的第一步！快速上手 HTML & CSS
+            展開你的網頁設計之旅！</a
+          ><br />
+          <a href="https://steam.oxxostudio.tw/category/html/index.html"
+            >Steam_HTML教學</a
+          ><br />
+          <a href="https://www.w3schools.com/">W3Schools</a><br />
+        </p>
+      </section>
+      <section>
+        <h1>Xml_hw2 作業說明</h1>
+        <p class="homePage">
+          •設計一個純HTML5+CSS網頁的網站。網站至少包括圖形、圖片、超連結、表格等多媒體內容。網站內容可包括個人資料、提供的網路資訊服務等項目。(Design
+          a Pure HTML5 Website. The Website should include images, hyperlinks,
+          tables, and any form of multimedia contents.) At least 4 pages<br />
+          •At least one page with SVG or [canvas] scalar graphics<br />
+          •One page show your resume.xml (or name card in HW1)<br />
+          •Use WCAG 2.1 Web Accessible Design (at least 3 items)<br />
+          •Please use RWD for laptop and mobile devices<br />
+          •Give a report (.docx) to discuss your design<br />
+          •Note: You can use web space from W3Schools<br />
+        </p>
+      </section>
+    </main>
+    <main>
+      <!-- Calendar -->
+      <section class="calendar">
+        <h2>Calendar</h2>
+        <div>
+          <!-- Embed Google Calendar -->
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Asia%2FTaipei"
+            style="border: 0"
+            width="300"
+            height="250"
+            frameborder="0"
+            scrolling="no"
+            title="Google Calendar"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+    <!-- side menu -->
+    <aside class="side-nav">
+      <a href="index.html">
+        <img src="picture/icon.png" alt="menu-icon" class="menu-icon" />
+      </a>
+      <ul class="nav-links font_MuseoModerno">
         <li><a href="resume.html">About</a></li>
-        <li><a href="image.html">Image</a></li>
-        <li><a href="video.html">Video</a></li>
-        <li><a href="voice.html">Voice</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="game.html">game</a></li>
+        <li><a href="graphics.html">graphics</a></li>
       </ul>
-    </nav>
-  </header>
-  <main class = "index">
-    <section>
-      <h2>作業說明</h2>
-      <p>
-        •設計一個純HTML5+CSS網頁的網站。網站至少包括圖形、圖片、超連結、表格等多媒體內容。網站內容可包括個人資料、提供的網路資訊服務等項目。(Design a Pure HTML5 Website. The Website should include images, hyperlinks, tables, and any form of multimedia contents.) At least 4 pages<br/>
-        •At least one page with SVG or [canvas] scalar graphics<br/>
-        •One page show your resume.xml (or name card in HW1)<br/>
-        •Use WCAG 2.1 Web Accessible Design (at least 3 items)<br/>
-        •Please use RWD for laptop and mobile devices<br/>
-        •Give a report (.docx) to discuss your design<br/>
-        •Note: You can use web space from W3Schools<br/>
-      </p>
-    </section>
-    <section>
-      <h2>html&css學習網址</h2>
-      <p>
-        <a href="https://www.youtube.com/watch?v=N1f6_OhiSFI&list=WL&index=3">【HTML CSS】網頁開發 1小時初學者教學</a><br/>
-        <a href="https://www.youtube.com/watch?v=6HHN0G2cwBM">成為網頁設計師的第一步！快速上手 HTML & CSS 展開你的網頁設計之旅！</a><br/>
-        <a href="https://steam.oxxostudio.tw/category/html/index.html">Steam_HTML教學</a><br/>
-      </p>
-      <h2>C++學習網址</h2>
-      <p>
-        <a href="https://www.youtube.com/watch?v=PIhu9qLeFc4&list=PLnKth7bLoeC7qVyi1dVn8EEV8k99cCTHl&index=5">C++ 教學 入門</a>
-        <p>Part.5開始</p>
-      </p>
-    </section>
-    <section class="picture">
-      <img src="picture/face.png" alt="face">
-    </section>
-    <section class="video">
-      <video src="video/test.mp4" controls></video>
-    </section>
-    <section class="voice">
-      <audio src="voice/test.mp3" controls></audio>
-    </section>
-  </main>
-  <div class="side-nav">
-    <a href="index.html">
-      <img src="picture/ema.png" alt="menu-icon" class="menu-icon"></img>
-    </a>
-    <ul class="nav-links">
-      <li><a href="resume.html">About</a></li>
-      <li><a href="image.html">Image</a></li>
-      <li><a href="video.html">Video</a></li>
-      <li><a href="voice.html">Voice</a></li>
-    </ul>
-  </div>
-  <footer>
-    &copy; Hyh_0328
-  </footer>
-</body>
+    </aside>
+    <footer class="font_MuseoModerno">
+      <div class="footer-icons">
+        <a href="https://github.com/Rex60309">
+          <img
+            src="picture/github_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+        <a href="mailto:rex50309@gmail.com">
+          <img
+            src="picture/gmail_icon.png"
+            alt="GitHub icon"
+            class="footer-img"
+          />
+        </a>
+      </div>
+      <div class="footer-copy">&copy; Hyh_0328</div>
+    </footer>
+  </body>
 </html>
