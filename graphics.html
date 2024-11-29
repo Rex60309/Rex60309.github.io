@@ -18,16 +18,35 @@
     <!-- Header -->
     <header>
       <h1>
-        <a href="home.html" title="Home Page"
-          ><img src="picture/icon.png" alt="icon"
+        <a href="home.html" title="Home Page" aria-label="Back to Home"
+          ><img src="picture/icon.png" alt="Icon" aria-hidden="true"
         /></a>
       </h1>
-      <nav class="font_MuseoModerno">
+      <nav class="font_MuseoModerno" aria-label="Main Navigation">
         <ul>
-          <li><a href="resume.html" title="About Me">About</a></li>
-          <li><a href="timetable.html" title="My Timetable">Timetable</a></li>
-          <li><a href="game.html" title="Mini Game">game</a></li>
-          <li><a href="graphics.html" title="Graphics">graphics</a></li>
+          <li>
+            <a href="resume.html" title="About Me" aria-label="Go to About Page"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="timetable.html"
+              title="My Timetable"
+              aria-label="View My Timetable"
+              >Timetable</a
+            >
+          </li>
+          <li>
+            <a href="game.html" title="Mini Game" aria-label="Play Mini Game"
+              >game</a
+            >
+          </li>
+          <li>
+            <a href="graphics.html" title="Graphics" aria-label="View Graphics"
+              >graphics</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -37,7 +56,7 @@
       <h2>SVG Graphics</h2>
       <section class="graphic-section">
         <!-- circle -->
-        <svg width="200" height="200" class="graphic">
+        <svg width="200" height="200" class="graphic" alt="circle">
           <circle
             cx="100"
             cy="100"
@@ -49,7 +68,7 @@
         </svg>
 
         <!-- rectangle -->
-        <svg width="200" height="200" class="graphic">
+        <svg width="200" height="200" class="graphic" alt="rectangle">
           <rect
             width="150"
             height="100"
@@ -62,7 +81,7 @@
         </svg>
 
         <!-- triangle -->
-        <svg width="200" height="200" class="graphic">
+        <svg width="200" height="200" class="graphic" alt="triangle">
           <polygon
             points="100,10 40,190 190,190"
             stroke="black"
@@ -72,7 +91,7 @@
         </svg>
 
         <!-- house -->
-        <svg width="200" height="200" class="graphic">
+        <svg width="200" height="200" class="graphic" alt="house">
           <rect
             x="50"
             y="100"
@@ -105,7 +124,13 @@
       <h2>Canvas Graphics</h2>
       <section class="graphic-section">
         <!-- Circle -->
-        <canvas id="circle" width="200" height="200" class="graphic"></canvas>
+        <canvas
+          id="circle"
+          width="200"
+          height="200"
+          class="graphic"
+          alt="circle"
+        ></canvas>
 
         <!-- Rectangle -->
         <canvas
@@ -113,13 +138,26 @@
           width="200"
           height="200"
           class="graphic"
+          alt="rectangle"
         ></canvas>
 
         <!-- Triangle -->
-        <canvas id="triangle" width="200" height="200" class="graphic"></canvas>
+        <canvas
+          id="triangle"
+          width="200"
+          height="200"
+          class="graphic"
+          alt="triangle"
+        ></canvas>
 
         <!-- House -->
-        <canvas id="house" width="200" height="200" class="graphic"></canvas>
+        <canvas
+          id="house"
+          width="200"
+          height="200"
+          class="graphic"
+          alt="house"
+        ></canvas>
       </section>
     </main>
     <main>
@@ -163,7 +201,7 @@
         <a href="mailto:rex50309@gmail.com" title="mail">
           <img
             src="picture/gmail_icon.png"
-            alt="Gmail icon"
+            alt="Mail icon"
             class="footer-img"
           />
         </a>

@@ -18,35 +18,58 @@
     <!-- top menu -->
     <header>
       <h1>
-        <a href="home.html" title="Home Page"
-          ><img src="picture/icon.png" alt="icon"
+        <a href="home.html" title="Home Page" aria-label="Back to Home"
+          ><img src="picture/icon.png" alt="Icon" aria-hidden="true"
         /></a>
       </h1>
-      <nav class="font_MuseoModerno">
+      <nav class="font_MuseoModerno" aria-label="Main Navigation">
         <ul>
-          <li><a href="resume.html" title="About Me">About</a></li>
-          <li><a href="timetable.html" title="My Timetable">Timetable</a></li>
-          <li><a href="game.html" title="Mini Game">game</a></li>
-          <li><a href="graphics.html" title="Graphics">graphics</a></li>
+          <li>
+            <a href="resume.html" title="About Me" aria-label="Go to About Page"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="timetable.html"
+              title="My Timetable"
+              aria-label="View My Timetable"
+              >Timetable</a
+            >
+          </li>
+          <li>
+            <a href="game.html" title="Mini Game" aria-label="Play Mini Game"
+              >game</a
+            >
+          </li>
+          <li>
+            <a href="graphics.html" title="Graphics" aria-label="View Graphics"
+              >graphics</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
     <main class="Tic-Tac-Toe-game comic-neue-bold">
       <h1>Tic-Tac-Toe game</h1>
       <div class="container">
-        <div class="game-info"><button id="reset">Reset</button></div>
-        <div class="game-board">
-          <div class="cell" id="cell-0"></div>
-          <div class="cell" id="cell-1"></div>
-          <div class="cell" id="cell-2"></div>
-          <div class="cell" id="cell-3"></div>
-          <div class="cell" id="cell-4"></div>
-          <div class="cell" id="cell-5"></div>
-          <div class="cell" id="cell-6"></div>
-          <div class="cell" id="cell-7"></div>
-          <div class="cell" id="cell-8"></div>
+        <div class="game-info">
+          <button id="reset" aria-label="Reset Game">Reset</button>
         </div>
-        <div class="game-info"><p id="winner"></p></div>
+        <div class="game-board">
+          <div class="cell" id="cell-0" role="button" aria-label="Cell 0"></div>
+          <div class="cell" id="cell-1" role="button" aria-label="Cell 1"></div>
+          <div class="cell" id="cell-2" role="button" aria-label="Cell 2"></div>
+          <div class="cell" id="cell-3" role="button" aria-label="Cell 3"></div>
+          <div class="cell" id="cell-4" role="button" aria-label="Cell 4"></div>
+          <div class="cell" id="cell-5" role="button" aria-label="Cell 5"></div>
+          <div class="cell" id="cell-6" role="button" aria-label="Cell 6"></div>
+          <div class="cell" id="cell-7" role="button" aria-label="Cell 7"></div>
+          <div class="cell" id="cell-8" role="button" aria-label="Cell 8"></div>
+        </div>
+        <div class="game-info">
+          <p id="winner" aria-live="polite" aria-atomic="true"></p>
+        </div>
       </div>
       <script>
         const cells = document.querySelectorAll(".cell");
@@ -54,6 +77,7 @@
         const winnerDisplay = document.getElementById("winner");
         let currentPlayer = "X";
         let gameActive = true;
+        let currentIndex = 0; // 當前選中格子的索引
         const winningConditions = [
           [0, 1, 2],
           [3, 4, 5],
@@ -64,6 +88,15 @@
           [0, 4, 8],
           [2, 4, 6],
         ];
+
+        // 更新選中的格子樣式
+        function updateSelection() {
+          cells.forEach((cell, index) => {
+            cell.classList.toggle("selected", index === currentIndex);
+          });
+        }
+
+        // 檢查是否有玩家獲勝
         function checkWinner() {
           for (let condition of winningConditions) {
             const [a, b, c] = condition;
@@ -86,19 +119,32 @@
           }
           return false;
         }
-        cells.forEach((cell) => {
+
+        // 處理下棋邏輯
+        function playMove(index) {
+          if (cells[index].textContent === "" && gameActive) {
+            cells[index].textContent = currentPlayer;
+            cells[index].classList.add(currentPlayer === "X" ? "x" : "o");
+            if (checkWinner()) {
+              return;
+            }
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+          }
+        }
+
+        // 滑鼠點擊事件
+        cells.forEach((cell, index) => {
           cell.addEventListener("click", () => {
-            if (cell.textContent === "" && gameActive) {
-              cell.textContent = currentPlayer;
-              cell.classList.add(currentPlayer === "X" ? "x" : "o");
-              if (checkWinner()) {
-                return;
-              }
-              currentPlayer = currentPlayer === "X" ? "O" : "X";
+            if (gameActive && cell.textContent === "") {
+              currentIndex = index; // 更新選中格子索引
+              playMove(index);
+              updateSelection();
             }
           });
         });
-        resetButton.addEventListener("click", () => {
+
+        // 重置遊戲
+        function resetGame() {
           cells.forEach((cell) => {
             cell.textContent = "";
             cell.classList.remove("x", "o");
@@ -107,7 +153,59 @@
           gameActive = true;
           winnerDisplay.textContent = "";
           winnerDisplay.classList.remove("winner");
+          currentIndex = 0; // 重置到第一格
+          updateSelection();
+        }
+        resetButton.addEventListener("click", resetGame);
+
+        // 處理鍵盤事件
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "r" || event.key === "R") {
+            resetGame();
+            return;
+          }
+
+          if (!gameActive) return;
+
+          const row = Math.floor(currentIndex / 3); // 計算當前行數
+          switch (event.key) {
+            case "ArrowUp":
+            case "w":
+              currentIndex = (currentIndex - 3 + 9) % 9; // 上移
+              break;
+            case "ArrowDown":
+            case "s":
+              currentIndex = (currentIndex + 3) % 9; // 下移
+              break;
+            case "ArrowLeft":
+            case "a":
+              // 左移，當行最左邊時，跳到該行最右邊
+              if (currentIndex % 3 === 0) {
+                currentIndex = currentIndex + 2; // 跳到同行最右邊
+              } else {
+                currentIndex -= 1; // 否則正常左移
+              }
+              break;
+            case "ArrowRight":
+            case "d":
+              // 右移，當行最右邊時，跳到該行最左邊
+              if (currentIndex % 3 === 2) {
+                currentIndex = currentIndex - 2; // 跳到同行最左邊
+              } else {
+                currentIndex += 1; // 否則正常右移
+              }
+              break;
+            case "Enter":
+            case "g":
+            case "G":
+              playMove(currentIndex); // 下棋
+              break;
+          }
+          updateSelection();
         });
+
+        // 初始化選中樣式
+        updateSelection();
       </script>
     </main>
     <main>
@@ -150,7 +248,7 @@
         <a href="mailto:rex50309@gmail.com" title="mail">
           <img
             src="picture/gmail_icon.png"
-            alt="GitHub icon"
+            alt="Mail icon"
             class="footer-img"
           />
         </a>
